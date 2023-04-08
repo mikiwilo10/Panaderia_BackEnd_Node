@@ -10,7 +10,9 @@ import { Expose, Type } from 'class-transformer';
 
 export class CreatePedidoDto {
 
-    @ApiProperty()
+    @ApiProperty({
+        example: [FormaPago.EFECTIVO, FormaPago.TARJETA],
+    })
     @IsString()
     @MinLength(1)
     pedido_tipo_pago?: FormaPago

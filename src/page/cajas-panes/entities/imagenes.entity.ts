@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
 import { CajasPanes } from "./cajas-pane.entity";
 
 @Entity({name:'imagen'})
@@ -16,5 +16,6 @@ export class Imagenes {
         ( cajas ) => cajas.cajas_imagen,
         {  onDelete: 'CASCADE' }
     )
+    @JoinColumn({name:'imagen_caja_id'})
     imagen_caja:CajasPanes
 }

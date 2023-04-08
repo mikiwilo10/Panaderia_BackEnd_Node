@@ -83,11 +83,4 @@ export class CajasPanesService {
     return caja;
   }
 
-  update(id: number, updateCajasPaneDto: UpdateCajasPaneDto) {
-    return `This action updates a #${id} cajasPane`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} cajasPane`;
-  }
 }

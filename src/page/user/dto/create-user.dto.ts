@@ -18,12 +18,18 @@ export class CreateUserDto {
   @IsEmail()
   user_email: string;
 
+  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   @MinLength(6)
   user_password: string;
 
-  @ApiProperty()
+
+  @ApiProperty({
+    enum: Rol,
+    isArray: true,
+    example: [Rol.ADMIN, Rol.CLIENTE, Rol.DELIVERY],
+  })
   @IsNotEmpty()
   user_roles: Rol[];
 

@@ -6,7 +6,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Pedidos')
+@ApiTags('Cajas Panes')
 @Controller('pedidos')
 @ApiBearerAuth('JWT-auth')
 export class PedidosController {
@@ -27,8 +27,8 @@ export class PedidosController {
   }
   
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pedidosService.findOne(+id);
+  @Get('uuid/:uuid')
+  findOne(@Param('uuid') uuid: string) {
+    return this.pedidosService.findOne(uuid);
   }
 }

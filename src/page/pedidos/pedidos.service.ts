@@ -65,8 +65,18 @@ export class PedidosService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} pedido`;
+async  findOne(uuid: string) {
+    const pedido= this.pedidoRepository.findOne(
+      {
+        where: {
+          pedido_id:uuid ,
+        },
+        relations: {
+          pedido_detalle: true,
+        }
+      }
+    );
+    return pedido;
   }
 
  

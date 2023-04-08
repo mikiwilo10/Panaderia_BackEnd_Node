@@ -6,6 +6,7 @@ import { UserModule } from './page/user/user.module';
 import { PedidosModule } from './page/pedidos/pedidos.module';
 import { CajasPanesModule } from './page/cajas-panes/cajas-panes.module';
 import { JwtStrategy } from './page/user/estrategias/jwt.strategy';
+import { EnviosModule } from './page/envios/envios.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { JwtStrategy } from './page/user/estrategias/jwt.strategy';
     UserModule,
     PedidosModule,
     CajasPanesModule,
+    EnviosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

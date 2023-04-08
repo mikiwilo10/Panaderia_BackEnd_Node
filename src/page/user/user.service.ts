@@ -70,13 +70,6 @@ export class UserService {
     }
   }
 
-  // generateJWT(user: User) {
-  //   const payload: JwtPayload = { rol: user.user_roles, email: user.user_email };
-  //   return {
-  //     access_token: this.jtwService.sign(payload),
-  //     user,
-  //   };
-  // }
   generateJWT(payload: JwtPayload ) {
     const token =  this.jtwService.sign(payload);
     return token; 
