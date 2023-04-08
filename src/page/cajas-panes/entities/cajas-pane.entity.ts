@@ -34,7 +34,7 @@ export class CajasPanes {
     )
     cajas_imagen?:Imagenes[];
 
-    @Exclude()
+    // @Exclude()
     @OneToMany(
         () => Imagenes,
         (imagen) => imagen.imagen_caja,

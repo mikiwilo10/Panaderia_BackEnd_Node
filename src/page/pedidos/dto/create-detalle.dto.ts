@@ -3,30 +3,33 @@ import { IsArray, IsIn, IsInt, IsNotEmpty, IsNumber, IsOptional,
 } from 'class-validator';
 import { DetallePedido } from '../entities/detallePedido.entity';
 import { FormaPago } from 'src/enum/FormaPago';
-import { CreateDetalleDto } from './create-detalle.dto';
 
-export class CreatePedidoDto {
-
-    @IsString()
-    @MinLength(1)
-    pedido_tipo_pago:FormaPago
-
-
-    @IsString()
-    @MinLength(1)
-    pedido_cliente:string
+export class CreateDetalleDto {
 
     // @IsNumber()
     // @IsPositive()
-    // pedido_total: number;
+    // detalle_total: number;
+
     @IsString({each:true})
     @IsArray()
     @IsOptional()
-    pedido_direccion?:string[];
+    detalle_direccion?:string[];
 
+    
+    @IsInt()
+    @IsPositive()
+    detalle_cantidad: number;
 
-    // @IsString({each:true})
-    @IsArray()
+    @IsNumber()
+    @IsPositive()
+    detalle_subTotal: number;
+
+    @IsPositive()
     @IsNotEmpty()
-    pedido_detalle:DetallePedido[];
+    detalle_caja: number;
+
+    @IsPositive()
+    @IsNotEmpty()
+    detalle_pedido: number;
+
 }

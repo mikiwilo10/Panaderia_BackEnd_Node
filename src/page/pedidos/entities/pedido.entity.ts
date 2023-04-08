@@ -1,9 +1,9 @@
 import { Exclude } from "class-transformer";
 import { FormaPago } from "src/enum/FormaPago";
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { DetallePedido } from "./detallePedido.entity";
 
-@Entity()
+@Entity({name:'pedido'})
 export class Pedido {
     @PrimaryGeneratedColumn('uuid')
     pedido_id: string;
@@ -19,7 +19,7 @@ export class Pedido {
     @Column({
         type: "varchar",
     })
-    pedido_direccion: string[];
+    pedido_direccion?: string[];
 
    
     @Column('varchar')
@@ -31,39 +31,13 @@ export class Pedido {
     pedido_total: number;
 
 
-    // @ManyToOne(() => Customer, (customer) => customer.orders)
-    // customer: Customer;
 
     @Exclude()
     @OneToMany(
         () => DetallePedido, 
-        (detalle) => detalle.detalle_pedido)
+        (detalle) => detalle.detalle_pedido,
+        {cascade:true})
     pedido_detalle: DetallePedido[];
 
-    // @Expose()
-    // get products() {
-    //     if (this.items) {
-    //         return this.items
-    //             .filter((item) => !!item)
-    //             .map((item) => ({
-    //                 ...item.product,
-    //                 quantity: item.quantity,
-    //                 itemId: item.id,
-    //             }));
-    //     }
-    //     return [];
-    // }
-
-    // @Expose()
-    // get total() {
-    //     if (this.items) {
-    //         return this.items
-    //             .filter((item) => !!item)
-    //             .reduce((total, item) => {
-    //                 const totalItem = item.product.price * item.quantity;
-    //                 return total + totalItem;
-    //             }, 0);
-    //     }
-    //     return 0;
-    // }
+    
 }
