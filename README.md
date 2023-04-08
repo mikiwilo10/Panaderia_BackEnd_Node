@@ -5,5 +5,5 @@
 •	Diagrama Entidad_Relacion propuesta:
 
 <p align="center">
- <img src="src/img/base.png" width="300"  alt="Nest Logo" />
+ <img src="src/img/base.png" width="500"  alt="Nest Logo" />
 </p>
