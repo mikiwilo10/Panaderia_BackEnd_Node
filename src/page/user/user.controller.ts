@@ -18,8 +18,6 @@ export class UserController {
   @Post('login')
   loginUser(@Body() loginDto: LoginDto) {
     return this.userService.login(loginDto);
-
-    // return this.userService.generateJWT()
   }
 
 
