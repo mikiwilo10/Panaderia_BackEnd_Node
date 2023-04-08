@@ -17,8 +17,6 @@ import { JwtStrategy } from './estrategias/jwt.strategy';
     JwtStrategy],
 
   imports: [
-    // ConfigModule,
-    // ConfigModule.forRoot(),
 
     TypeOrmModule.forFeature([User]),
     PassportModule.register(

@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe, UseGuards,SetMetadata } from '@nestjs/common';
 import { CajasPanesService } from './cajas-panes.service';
 import { CreateCajasPaneDto } from './dto/create-cajas-pane.dto';
-import { UpdateCajasPaneDto } from './dto/update-cajas-pane.dto';
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
 import { AuthGuard } from '@nestjs/passport';
 import { Rol } from 'src/enum/Rol.Enum';

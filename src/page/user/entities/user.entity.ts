@@ -23,9 +23,6 @@ export class User {
     })
     isActive: boolean;
 
-    // @Column('varchar',
-    // {array: true,})
-    // user_roles: string[];
     @Column({
         type: "set",
         enum: Rol,
@@ -36,6 +33,5 @@ export class User {
     @BeforeInsert()
     checkFieldsBeforeInsert() {
         this.user_email = this.user_email.toLowerCase().trim();
-        // this.user_roles = this.user_roles.toLowerCase().trim();
     }
 }

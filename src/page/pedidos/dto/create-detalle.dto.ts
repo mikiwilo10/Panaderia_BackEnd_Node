@@ -1,9 +1,6 @@
 import { IsArray, IsIn, IsInt, IsNotEmpty, IsNumber, IsOptional, 
     IsPositive, IsString, IsUUID, MinLength 
 } from 'class-validator';
-import { DetallePedido } from '../entities/detallePedido.entity';
-import { FormaPago } from 'src/enum/FormaPago';
-import { CreateCajasPaneDto } from 'src/page/cajas-panes/dto/create-cajas-pane.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose } from 'class-transformer';
 

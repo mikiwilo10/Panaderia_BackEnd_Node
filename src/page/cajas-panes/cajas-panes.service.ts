@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable, InternalServerErrorException, Logger, NotFoundException } from '@nestjs/common';
 
 import { CreateCajasPaneDto } from './dto/create-cajas-pane.dto';
-import { UpdateCajasPaneDto } from './dto/update-cajas-pane.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CajasPanes } from './entities/cajas-pane.entity';
 import { Repository } from 'typeorm';

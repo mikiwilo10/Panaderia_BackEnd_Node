@@ -2,11 +2,9 @@ import {
     IsArray, IsIn, IsInt, IsNotEmpty, IsNumber, IsObject, IsOptional,
     IsPositive, IsString, MinLength
 } from 'class-validator';
-import { DetallePedido } from '../entities/detallePedido.entity';
 import { FormaPago } from 'src/enum/FormaPago';
 import { CreateDetalleDto } from './create-detalle.dto';
 import { ApiProperty } from '@nestjs/swagger';
-import { Expose, Type } from 'class-transformer';
 
 export class CreatePedidoDto {
 
