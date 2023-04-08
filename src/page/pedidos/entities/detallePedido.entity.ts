@@ -17,6 +17,9 @@ export class DetallePedido {
     @PrimaryGeneratedColumn('uuid')
     detalle_id: number;
 
+    @Column('simple-array')
+    detalle_direccion?: string[];
+
     @Column({ type: 'int' })
     detalle_cantidad: number;
 

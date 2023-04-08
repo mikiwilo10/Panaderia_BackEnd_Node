@@ -2,6 +2,7 @@ import { Exclude } from "class-transformer";
 import { FormaPago } from "src/enum/FormaPago";
 import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { DetallePedido } from "./detallePedido.entity";
+import { EstadoPedido } from "src/enum/EstadoPedido";
 
 @Entity({name:'pedido'})
 export class Pedido {
@@ -15,15 +16,15 @@ export class Pedido {
     @Column('varchar')
     pedido_tipo_pago: FormaPago;
 
-   
-    @Column({
-        type: "varchar",
-    })
-    pedido_direccion?: string[];
-
+    @Column('varchar',{default:EstadoPedido.PEDIDO})
+    pedido_estado:string
    
     @Column('varchar')
     pedido_cliente:string
+
+    @Column('varchar',{nullable:true,default:"0999999999"},
+    )
+    pedido_cliente_telefono?: string;
 
     @Column('float',{
         default: 0

@@ -5,7 +5,9 @@ import { LoginDto } from './dto/login.deto';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
 import { Rol } from 'src/enum/Rol.Enum';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Auth')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) { }
@@ -20,12 +22,5 @@ export class UserController {
     return this.userService.login(loginDto);
   }
 
-
-  @Get('private')
-  @SetMetadata('user_roles',[Rol.ADMIN,Rol.CLIENTE])
-  @UseGuards(AuthGuard(),ApiKeyGuard)
-  findAll() {
-    return `privada papa`;
-  }
 
 }

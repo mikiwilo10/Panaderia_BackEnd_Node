@@ -1,32 +1,36 @@
-import { IsArray, IsIn, IsInt, IsNotEmpty, IsNumber, IsOptional, 
-    IsPositive, IsString, MinLength 
+import {
+    IsArray, IsIn, IsInt, IsNotEmpty, IsNumber, IsObject, IsOptional,
+    IsPositive, IsString, MinLength
 } from 'class-validator';
 import { DetallePedido } from '../entities/detallePedido.entity';
 import { FormaPago } from 'src/enum/FormaPago';
 import { CreateDetalleDto } from './create-detalle.dto';
+import { ApiProperty } from '@nestjs/swagger';
+import { Expose, Type } from 'class-transformer';
 
 export class CreatePedidoDto {
 
+    @ApiProperty()
     @IsString()
     @MinLength(1)
-    pedido_tipo_pago:FormaPago
+    pedido_tipo_pago?: FormaPago
 
 
+    @ApiProperty()
     @IsString()
     @MinLength(1)
-    pedido_cliente:string
+    pedido_cliente: string
 
-    // @IsNumber()
-    // @IsPositive()
-    // pedido_total: number;
-    @IsString({each:true})
-    @IsArray()
+
+    @ApiProperty()
+    @IsString()
+    @MinLength(1)
     @IsOptional()
-    pedido_direccion?:string[];
+    pedido_cliente_telefono: string
 
 
-    // @IsString({each:true})
-    @IsArray()
+    @ApiProperty({type:CreateDetalleDto,isArray: true,})
     @IsNotEmpty()
-    pedido_detalle:DetallePedido[];
+    @IsArray()
+    pedido_detalle: CreateDetalleDto[];
 }

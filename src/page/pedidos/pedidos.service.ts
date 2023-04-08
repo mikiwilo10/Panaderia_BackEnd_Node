@@ -1,6 +1,5 @@
 import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
-import { UpdatePedidoDto } from './dto/update-pedido.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Pedido } from './entities/pedido.entity';
 import { DetallePedido } from './entities/detallePedido.entity';
@@ -35,6 +34,8 @@ export class PedidosService {
           pedido_detalle: pedido_detalle.map(det => this.detalleRepository.create({
             detalle_cantidad: det.detalle_cantidad,
             detalle_caja: det.detalle_caja,
+            detalle_direccion:det.detalle_direccion
+            
           }
           ))
         });
@@ -68,11 +69,5 @@ export class PedidosService {
     return `This action returns a #${id} pedido`;
   }
 
-  update(id: number, updatePedidoDto: UpdatePedidoDto) {
-    return `This action updates a #${id} pedido`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} pedido`;
-  }
+ 
 }

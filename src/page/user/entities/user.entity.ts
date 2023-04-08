@@ -17,14 +17,6 @@ export class User {
     })
     user_password: string;
 
-    @Column('varchar')
-    user_nombre: string;
-
-    @Column('varchar',{nullable:true})
-    user_direccion?: string;
-
-    @Column('varchar',{nullable:true})
-    user_telefono?: string;
 
     @Column('boolean', {
         default: true

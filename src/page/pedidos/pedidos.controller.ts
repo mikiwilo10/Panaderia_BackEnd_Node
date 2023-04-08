@@ -1,12 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards,SetMetadata } from '@nestjs/common';
 import { PedidosService } from './pedidos.service';
 import { CreatePedidoDto } from './dto/create-pedido.dto';
-import { UpdatePedidoDto } from './dto/update-pedido.dto';
 import { Rol } from 'src/enum/Rol.Enum';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Pedidos')
 @Controller('pedidos')
+@ApiBearerAuth('JWT-auth')
 export class PedidosController {
   constructor(private readonly pedidosService: PedidosService) {}
 
@@ -23,6 +25,7 @@ export class PedidosController {
   findAll() {
     return this.pedidosService.findAll();
   }
+  
 
   @Get(':id')
   findOne(@Param('id') id: string) {
