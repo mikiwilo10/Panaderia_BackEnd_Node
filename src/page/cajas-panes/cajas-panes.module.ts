@@ -12,6 +12,7 @@ import { UserModule } from '../user/user.module';
   imports:[
     TypeOrmModule.forFeature([CajasPanes,Imagenes]),
     UserModule
-  ]
+  ],
+  exports:[CajasPanesService]
 })
 export class CajasPanesModule {}

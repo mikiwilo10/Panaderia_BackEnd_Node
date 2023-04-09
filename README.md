@@ -5,5 +5,5 @@
 •	Diagrama Entidad_Relacion propuesta:
 
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="src/img/base.png" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="src/img/base.png" width="500" alt="Nest Logo" /></a>
 </p>

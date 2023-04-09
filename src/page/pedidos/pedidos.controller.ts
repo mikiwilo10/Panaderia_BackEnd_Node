@@ -6,7 +6,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Cajas Panes')
+@ApiTags('Pedidos')
 @Controller('pedidos')
 @ApiBearerAuth('JWT-auth')
 export class PedidosController {

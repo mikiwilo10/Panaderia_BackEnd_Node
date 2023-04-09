@@ -5,16 +5,20 @@ import { PedidosModule } from './page/pedidos/pedidos.module';
 import { CajasPanesModule } from './page/cajas-panes/cajas-panes.module';
 import { JwtStrategy } from './page/user/estrategias/jwt.strategy';
 import { EnviosModule } from './page/envios/envios.module';
+import { ConfigModule } from '@nestjs/config';
+import { SeedModule } from './seed/seed.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'liceo',
-      password: 'Cuenca2023@.',
-      database: 'panaderia',
+      host: process.env.DB_HOST,
+      // port: +process.env.DB_PORT,
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      ssl:{ rejectUnauthorized: false },
       autoLoadEntities:true,
       synchronize: true,
     }),
@@ -22,6 +26,7 @@ import { EnviosModule } from './page/envios/envios.module';
     PedidosModule,
     CajasPanesModule,
     EnviosModule,
+    SeedModule,
   ],
   controllers: [],
   providers: [],

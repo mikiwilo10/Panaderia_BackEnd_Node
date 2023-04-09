@@ -17,6 +17,8 @@ export class User {
     })
     user_password: string;
 
+    @Column()
+    user_nombre: string;
 
     @Column('boolean', {
         default: true

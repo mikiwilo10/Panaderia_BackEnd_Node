@@ -14,6 +14,7 @@ import { JwtStrategy } from './estrategias/jwt.strategy';
     TypeOrmModule,
     PassportModule,
     JwtModule,
+    UserService,
     JwtStrategy],
 
   imports: [
